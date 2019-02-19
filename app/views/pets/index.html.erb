@@ -1,0 +1,21 @@
+<h1>Found Pets</h1>
+<div class="container">
+  <div>
+    <%= button_to "New Pet", new_pet_path, class: "btn btn-danger", method: "get" %>
+  </div>
+  <div class="row">
+    <% @pets.each do |pet| %>
+      <div class="col-4" style="margin:5px">
+        <p><strong><%= link_to pet.name, pet_path(pet) %></strong></p>
+        <p><%= pet.species %></p>
+        <p><%= pet.location %></p>
+        <p>Found <%= pet.found_days_ago %> days ago</p>
+        <% if pet.dead? %>
+          <i class="fas fa-skull-crossbones"></i>
+        <% else %>
+          <i class="fas fa-paw"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

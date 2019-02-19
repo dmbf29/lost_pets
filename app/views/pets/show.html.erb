@@ -1,0 +1,20 @@
+<div class="container">
+  <!-- <div class="row"> -->
+    <h1><strong><%= @pet.name %></strong></h1>
+    <p><%= @pet.species %></p>
+    <p><%= @pet.location %></p>
+    <p>Found <%= @pet.found_days_ago %> days ago</p>
+    <% if @pet.dead? %>
+      <i class="fas fa-skull-crossbones"></i>
+    <% else %>
+      <i class="fas fa-paw"></i>
+    <% end %>
+  <!-- </div> -->
+  <br>
+  <%= link_to root_path do %>
+    <i class="fas fa-home"></i>
+  <% end %>
+  <%= link_to edit_pet_path(@pet) do %>
+    <i class="fas fa-pen"></i>
+  <% end %>
+</div>
